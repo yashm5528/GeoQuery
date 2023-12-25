@@ -1,9 +1,12 @@
-from langchain_community.utilities import SQLDatabase, SQLDatabaseToolkit
-from langchain_community.llm import OpenAI
+#from langchain_community.utilities import SQLDatabase, SQLDatabaseToolkit
+from langchain.agents.agent_toolkits import SQLDatabaseToolkit
+from langchain.sql_database import SQLDatabase
+from langchain.llms.openai import OpenAI
 import requests
 
 # Connect to the SQLite database
-db = SQLDatabase.from_uri("sqlite:///home/student/capstone_implementation/GeoQuery/GeoQuery.db")
+#home/student/capstone_implementation/GeoQuery/
+db = SQLDatabase.from_uri("sqlite:///GeoQuery.db")
 toolkit = SQLDatabaseToolkit(db=db, llm=OpenAI(temperature=0))
 
 # Prepare the OpenAI API call
